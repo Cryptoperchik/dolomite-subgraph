@@ -1,0 +1,71 @@
+type Market @entity {
+  " Unique ID for a market "
+  id: ID!
+
+  " Token associated to this market "
+  token: Token!
+
+  " Current market state "
+  state: MarketState
+}
+
+type Token @entity {
+  " Token address "
+  id: ID!
+
+  " Token address "
+  address: Bytes!
+
+  " Number of decimals of the token "
+  decimals: Int!
+
+  " Human-readable name of the token "
+  name: String!
+
+  " Symbol of the token "
+  symbol: String!
+
+  " Associated market "
+  market: Market!
+
+  " Current price "
+  price: TokenPrice
+}
+
+enum PositionStatus {
+  Open
+  Closed
+  Expired
+}
+
+type OpenPosition @entity {
+  " Equals to: <accountOwner>-<accountNumber>-<takerMarket> "
+  id: ID!
+
+  " Position owner's address "
+  accountOwner: Bytes!
+
+  " Current position amount "
+  amount: BigInt!
+
+  " Market maker reference  "
+  makerMarket: Market
+
+  " Market taker reference "
+  takerMarket: Market
+
+  " String representation of position market "
+  market: String
+
+  " Price the position opened at "
+  openPrice: BigDecimal!
+
+  " Position status - open, closed or expired "
+  status: PositionStatus!
+
+  " Timestamp when the position was opened "
+  created: BigInt!
+
+  " Timestamp the position expires "
+  expiration: BigInt
+}
