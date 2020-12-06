@@ -60,7 +60,7 @@ type OpenPosition @entity {
   " Price the position opened at "
   openPrice: BigDecimal!
 
-  " Position status - open, closed or expired "
+  " Position status - open or closed or expired "
   status: PositionStatus!
 
   " Timestamp when the position was opened "
