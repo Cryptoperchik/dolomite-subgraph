@@ -1,5 +1,5 @@
 type Market @entity {
-  " Unique ID for a market "
+
   id: ID!
 
   " Token associated to this market "
@@ -10,7 +10,7 @@ type Market @entity {
 }
 
 type Token @entity {
-  " Token address "
+
   id: ID!
 
   " Token address "
@@ -39,7 +39,7 @@ enum PositionStatus {
 }
 
 type OpenPosition @entity {
-  " Equals to: <accountOwner>-<accountNumber>-<takerMarket> "
+
   id: ID!
 
   " Position owner's address "
